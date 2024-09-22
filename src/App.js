@@ -84,24 +84,24 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-gray-800 dark:to-black text-white">
-      <h1 className="text-6xl font-extrabold mb-12">My To-Do List</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-gray-800 dark:to-black text-white p-4">
+      <h1 className="text-4xl sm:text-6xl font-extrabold mb-8 sm:mb-12 text-center">My To-Do List</h1>
 
       {/* Input dan Tombol Tambah */}
-      <div className="flex space-x-4 mb-10 items-center">
+      <div className="flex flex-col sm:flex-row items-center sm:space-x-4 mb-8 sm:mb-10 w-full sm:w-auto">
         <input
           type="text"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)} // Update inputan tugas
           placeholder="Tambah tugas baru"
-          className="px-6 py-3 w-80 bg-white text-gray-800 rounded-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-400 transition-transform transform-gpu hover:scale-105"
+          className="px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-80 bg-white text-gray-800 rounded-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-400 transition-transform transform-gpu hover:scale-105 mb-4 sm:mb-0"
         />
 
         {/* Dropdown untuk memilih prioritas */}
         <select
           value={priority}
           onChange={(e) => setPriority(e.target.value)} // Update prioritas tugas
-          className="px-4 py-3 bg-white text-gray-800 rounded-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-400 transition-transform transform-gpu hover:scale-105"
+          className="px-4 py-2 sm:px-4 sm:py-3 bg-white text-gray-800 rounded-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-400 transition-transform transform-gpu hover:scale-105 mb-4 sm:mb-0"
         >
           <option value="high">Tinggi</option>
           <option value="medium">Sedang</option>
@@ -110,7 +110,7 @@ function App() {
 
         <button
           onClick={addTask}
-          className={`px-6 py-3 rounded-lg shadow-lg transition duration-300 ease-in-out transform-gpu ${
+          className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg transition duration-300 ease-in-out transform-gpu ${
             isEditing ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-green-500 hover:bg-green-600'
           } focus:outline-none focus:ring-4 focus:ring-green-300 text-white font-semibold hover:scale-105`}
         >
@@ -129,7 +129,7 @@ function App() {
             transition={{ duration: 0.3 }}
             className="flex items-center justify-between bg-white text-gray-800 px-6 py-4 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform-gpu hover:scale-105"
           >
-            <span className={`text-xl ${
+            <span className={`text-lg sm:text-xl ${
               task.priority === "high" ? "text-red-500" : task.priority === "low" ? "text-green-500" : "text-yellow-500"
             }`}>
               {task.text} - {task.priority === "high" ? "Tinggi" : task.priority === "medium" ? "Sedang" : "Rendah"}
@@ -164,7 +164,7 @@ function App() {
       {/* Tombol Toggle Dark Mode */}
       <button
         onClick={toggleDarkMode}
-        className="mt-12 px-8 py-3 bg-gray-900 text-white rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out transform-gpu hover:scale-105"
+        className="mt-12 px-6 py-2 sm:px-8 sm:py-3 bg-gray-900 text-white rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out transform-gpu hover:scale-105"
       >
         Toggle Dark Mode
       </button>
